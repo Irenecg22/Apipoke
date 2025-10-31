@@ -1,0 +1,46 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:label="ApiPoke"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ApiPoke"
+        tools:targetApi="34">
+
+        <!-- Pantalla principal -->
+        <activity
+            android:name="com.example.apipoke.MainActivity"
+            android:exported="true"
+            android:label="ApiPoke"
+            android:theme="@style/Theme.ApiPoke">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Otras pantallas -->
+        <activity
+            android:name="com.example.apipoke.Login"
+            android:exported="false"
+            android:theme="@style/Theme.ApiPoke" />
+
+        <activity
+            android:name="com.example.apipoke.Registro"
+            android:exported="false"
+            android:theme="@style/Theme.ApiPoke" />
+
+        <activity
+            android:name="com.example.apipoke.DatosUsuario"
+            android:exported="false"
+            android:theme="@style/Theme.ApiPoke" />
+
+        <activity
+            android:name="com.example.apipoke.Api"
+            android:exported="false"
+            android:theme="@style/Theme.ApiPoke" />
+
+    </application>
+
+</manifest>
