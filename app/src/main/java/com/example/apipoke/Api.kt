@@ -16,6 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
+import com.example.apipoke.data.models.Pokemon
+import com.example.apipoke.data.models.PokemonResponse
+import com.example.apipoke.data.network.PokeAPI
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit

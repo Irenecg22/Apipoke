@@ -1,4 +1,4 @@
-package com.example.apipoke
+package com.example.apipoke.data.models
 
 class Pokemon {
 

@@ -1,5 +1,7 @@
-package com.example.apipoke
+package com.example.apipoke.data.network
 
+import com.example.apipoke.data.models.Pokemon
+import com.example.apipoke.data.models.PokemonResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -18,3 +20,4 @@ interface PokeAPI {
     @GET("pokemon/{id}")
     fun getPokemon(@Path("id") id: Int): Call<Pokemon>
 }
+
