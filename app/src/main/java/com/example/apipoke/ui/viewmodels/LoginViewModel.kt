@@ -1,7 +1,5 @@
 package com.example.apipoke.ui.viewmodels
 
-
-
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.apipoke.data.repository.AuthRepository
@@ -31,8 +29,8 @@ class LoginViewModel : ViewModel() {
     fun onPasswordChange(newPassword: String) { _password.value = newPassword }
 
     fun login() {
-        val emailValue = _email.value
-        val passwordValue = _password.value
+        val emailValue = _email.value.trim()
+        val passwordValue = _password.value.trim()
 
         if (emailValue.isBlank() || passwordValue.isBlank()) {
             _errorMessage.value = "Completa todos los campos"
@@ -41,10 +39,22 @@ class LoginViewModel : ViewModel() {
 
         viewModelScope.launch {
             _isLoading.value = true
-            val result = authRepository.login(emailValue, passwordValue)
-            result.onSuccess { _isLoginOk.value = true }
-                .onFailure { _errorMessage.value = it.message }
-            _isLoading.value = false
+            _errorMessage.value = null
+            _isLoginOk.value = false
+
+            try {
+                val result = authRepository.login(emailValue, passwordValue)
+                result.onSuccess {
+                    _isLoginOk.value = true
+                }.onFailure {
+                    _errorMessage.value = it.message ?: "Error al iniciar sesión"
+                }
+            } catch (e: Exception) {
+                _errorMessage.value = e.message ?: "Error inesperado al iniciar sesión"
+            } finally {
+                _isLoading.value = false
+            }
         }
     }
 }
+
